@@ -1,5 +1,9 @@
 @import 'fonts';
 
+@import 'variables';
+
+@import 'colors';
+
 .fontTest{
   font-family: 'Work Sans',sans-serif;
 }
@@ -10,4 +14,10 @@
 
 .fontTest3{
   font-family: 'avenir demibold';
+}
+
+
+.div{
+  height: 100px;
+  width: 100px;
 }
