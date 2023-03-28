@@ -1,0 +1,44 @@
+//Roboto and WorkSans Fonts
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Work+Sans:wght@400;500;600&display=swap');
+
+
+//Avenir Next fonts & SF Compact Text
+
+@font-face {
+    font-family: 'sf_compact_textregular';
+    src: url('../assets/fonts/fontsfree-net-sfcompacttext-regular-webfont.woff2') format('woff2'),
+         url('../assets/fonts/fontsfree-net-sfcompacttext-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+@font-face {
+    font-family: 'avenir bold';
+    src: url('../assets/fonts/avenirnextltpro-bold-webfont.woff2') format('woff2'),
+         url('../assets/fonts/avenirnextltpro-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+@font-face {
+    font-family: 'avenir demibold';
+    src: url('../assets/fonts/avenirnextltpro-demi-webfont.woff2') format('woff2'),
+         url('../assets/fonts/avenirnextltpro-demi-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+@font-face {
+    font-family: 'avenir regular';
+    src: url('../assets/fonts/avenirnextltpro-regular-webfont.woff2') format('woff2'),
+         url('../assets/fonts/avenirnextltpro-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
