@@ -1,0 +1,44 @@
+//FLEXBOX
+
+.flex {
+  display: flex;
+}
+
+$justify-values: flex-start, flex-end, center, space-around, space-between,
+  space-evenly;
+
+$align-values: stretch, flex-start, flex-end, center;
+
+@each $val in $justify-values {
+  // .justify-flex-start {
+  //     justify-content: flex-start;
+  // }
+
+  .justify-#{$val} {
+    justify-content: $val;
+  }
+}
+
+@each $val in $align-values {
+  // .align-flex-start {
+  //     align-items: flex-start;
+  // }
+
+  .align-#{$val} {
+    align-items: $val;
+  }
+}
+
+
+//GRID BOX
+.grid {
+  display: grid;
+}
+
+//Grid Columns
+@for $i from 1 through 12 {
+  .grid-cols-#{$i} {
+    grid-template-columns: repeat($i, 1fr);
+  }
+}
+
