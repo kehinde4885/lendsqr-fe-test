@@ -1,16 +1,18 @@
-import { useState } from 'react'
-import reactLogo from './assets/images/react.svg'
-import viteLogo from '/vite.svg'
+//StyleSheet
 import './scss/App.scss'
 
+//Components
 import Login from './Login'
+import Dashboard from './Dashboard'
+
+
 function App() {
 
   return (
     <div className="App">
-      <Login/>
-    
-    
+      {/* <Login/> */}
+      <Dashboard/>
+
     </div>
   )
 }

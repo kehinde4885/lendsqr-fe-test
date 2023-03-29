@@ -1,14 +1,16 @@
+//Assets
 import loginBanner from "./assets/images/pablo.svg";
-import union from "./assets/images/Union.svg";
-import lendsqr from "./assets/images/lendsqr.svg";
+
+//Component
+import Logo from "./Logo";
+
+//StyleSheet
+import './scss/login.scss'
 
 export default function Login() {
   return (
     <section className="login-section grid grid-cols-2">
-      {/* <div className="logo flex">
-        <img src={union} alt="" />
-        <img src={lendsqr} alt="" />
-      </div> */}
+      <Logo />
 
       <div>
         <img src={loginBanner} alt="" />
@@ -17,14 +19,19 @@ export default function Login() {
       <article>
         <h1>Welcome!</h1>
         <p>Enter details to login.</p>
-        <form className='form' action="">
-            <input type="email" name="" id="" placeholder="Email"/>
+        <form className="form" action="">
+          <input type="email" name="email" id="email" placeholder="Email" />
 
-            <input type="password" name="" id="" placeholder="Password"/>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Password"
+          />
 
-            <button className="fgt-btn">FORGOT PASSWORD ?</button>
+          <button className="fgt-btn">FORGOT PASSWORD ?</button>
 
-            <button className="login-btn">LOG IN</button>
+          <button className="login-btn">LOG IN</button>
         </form>
       </article>
     </section>
