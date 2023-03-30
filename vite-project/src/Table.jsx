@@ -4,7 +4,7 @@ import next from "./assets/images/np_next.svg";
 
 import "./scss/table.scss";
 
-export default function Table() {
+export default function UsersTable() {
   return (
     <div className="container">
       <table className="user-table">
@@ -112,7 +112,7 @@ export default function Table() {
         </tbody>
       </table>
 
-      <aside className="filt-modal">
+      {/* <aside className="filt-modal">
         <form className="filt-form" action="">
           <label htmlFor="Organization">Organization</label>
           <select name="Organization" id="Organization"></select>
@@ -132,33 +132,38 @@ export default function Table() {
             <button className="filter">Filter</button>
           </div>
         </form>
-      </aside>
+      </aside> */}
 
       <form className="ctrl-btns">
-        <div>
+        <div className="grpBy">
           <label>
             Showing{" "}
             <select name="" id="">
-              {" "}
+              <option>10</option>
+              <option>25</option>
+              <option>50</option>
+              <option>100</option>
             </select>{" "}
             out of 100
           </label>
         </div>
 
         <div className="pgn">
-          <button className="ctrl">
-            <img src={next} alt="" />
+          <button className="ctrl ctrl-left">
+            <img className="disabled" src={next} alt="" />
           </button>
-          <button>
-            <span>1</span>
-          </button>
-          <button>
-            <span>2</span>
-          </button>
-          <button>
-            <span>3</span>
-          </button>
-          <button className="ctrl">
+          <div className="pages">
+            <button className="active">
+              <span>1</span>
+            </button>
+            <button>
+              <span>2</span>
+            </button>
+            <button>
+              <span>3</span>
+            </button>
+          </div>
+          <button className="ctrl ">
             <img src={next} alt="" />
           </button>
         </div>

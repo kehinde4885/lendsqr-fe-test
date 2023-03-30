@@ -8,7 +8,7 @@ import savings from "./assets/images/np_money.svg";
 import userActive from "./assets/images/np_users_1.svg";
 
 //components
-import Table from "./Table";
+import UsersTable from "./Table";
 
 export default function Users() {
   return (
@@ -48,7 +48,7 @@ export default function Users() {
         </div>
       </div>
 
-      <Table />
+      <UsersTable />
     </main>
   );
 }
