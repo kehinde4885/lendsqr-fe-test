@@ -23,3 +23,10 @@ input:focus-visible{
 select:focus-visible{
   outline: none
 }
+
+button{
+  cursor: pointer;
+  font-family: inherit;
+  color: inherit;
+  border: none;
+}

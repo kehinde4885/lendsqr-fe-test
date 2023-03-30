@@ -1,0 +1,8 @@
+//Z-Index Stacking
+
+@for $val from 0 through 100{
+    .z-#{$val}{
+        z-index: $val;
+    }
+
+}

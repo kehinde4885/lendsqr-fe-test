@@ -8,6 +8,8 @@
 
 @import "mixins";
 
+@import "utils";
+
 .container {
   position: relative;
 
@@ -50,15 +52,42 @@
         font-size: 1.2rem;
       }
 
-      .button {
+      .ham-button {
         position: absolute;
         right: 0;
         top: 50%;
         transform: translateY(-50%);
 
-        button {
+        .button-img {
           background-color: none;
           border: none;
+        }
+
+        .button-modal {
+          @include box();
+          border-radius: 4px;
+          position: absolute;
+          padding: 1rem 1rem;
+
+          display: flex;
+          align-items: center;
+          justify-items: center;
+          flex-direction: column;
+          top: -50%;
+          right: 0;
+
+          button {
+            background-color: inherit;
+            display: flex;
+            align-items: center;
+            padding: 0.5rem 0;
+            width: max-content;
+            font-weight: 500;
+
+            span{
+              padding-right: .5rem;
+            }
+          }
         }
       }
 
@@ -193,10 +222,10 @@
       .ctrl {
         background-color: rgba($color: $primary, $alpha: 0.1);
         border-radius: 4px;
-        padding:.5rem ;
+        padding: 0.5rem;
 
-        .disabled{
-          opacity: .6;
+        .disabled {
+          opacity: 0.6;
         }
       }
 

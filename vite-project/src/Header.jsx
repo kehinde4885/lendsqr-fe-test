@@ -2,7 +2,7 @@
 import Logo from "./Logo";
 
 //Assets
-import bell from './assets/images/bell.svg'
+import bell from './assets/images/bell.png'
 import deji from './assets/images/deji.svg'
 import search from './assets/images/search.svg'
 import dropdown from './assets/images/dropdown.svg'

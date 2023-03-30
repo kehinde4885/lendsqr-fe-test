@@ -1,6 +1,9 @@
 import filter from "./assets/images/filter.svg";
 import ham from "./assets/images/Vector-4.svg";
 import next from "./assets/images/np_next.svg";
+import view from "./assets/images/np_view.svg";
+import blacklist from "./assets/images/blacklist.png";
+import activate from "./assets/images/Vector-2.svg";
 
 import "./scss/table.scss";
 
@@ -49,7 +52,7 @@ export default function UsersTable() {
           </tr>
         </thead>
         <tbody>
-          <tr className="body-row">
+          <tr className="body-row z-1">
             <td>Lendsqr</td>
             <td>Adedeji</td>
             <td>adedeji@lendsqr.com</td>
@@ -58,55 +61,30 @@ export default function UsersTable() {
             <td>
               <span className="inactive">Inactive</span>
             </td>
-            <td className="button">
-              <button>
+            <td className="ham-button">
+              <button className="button-img">
                 <img src={ham} alt="" />
               </button>
-            </td>
-          </tr>
-          <tr className="body-row">
-            <td>Lendsqr</td>
-            <td>Adedeji</td>
-            <td>adedeji@lendsqr.com</td>
-            <td>08078903721</td>
-            <td>May 15, 2020 10:00AM</td>
-            <td>
-              <span className="inactive">Inactive</span>
-            </td>
-            <td className="button">
-              <button>
-                <img src={ham} alt="" />
-              </button>
-            </td>
-          </tr>
-          <tr className="body-row">
-            <td>Lendsqr</td>
-            <td>Adedeji</td>
-            <td>adedeji@lendsqr.com</td>
-            <td>08078903721</td>
-            <td>May 15, 2020 10:00AM</td>
-            <td>
-              <span className="inactive">Inactive</span>
-            </td>
-            <td className="button">
-              <button>
-                <img src={ham} alt="" />
-              </button>
-            </td>
-          </tr>
-          <tr className="body-row">
-            <td>Lendsqr</td>
-            <td>Adedeji</td>
-            <td>adedeji@lendsqr.com</td>
-            <td>08078903721</td>
-            <td>May 15, 2020 10:00AM</td>
-            <td>
-              <span className="inactive">Inactive</span>
-            </td>
-            <td className="button">
-              <button>
-                <img src={ham} alt="" />
-              </button>
+              <div className="button-modal">
+                <button>
+                  <span>
+                    <img src={view} alt="" />
+                  </span>
+                  <span>View Details</span>
+                </button>
+                <button>
+                  <span>
+                    <img src={blacklist} alt="" />
+                  </span>
+                  <span>Blacklist User</span>
+                </button>
+                <button>
+                  <span>
+                    <img src={activate} alt="" />
+                  </span>
+                  <span>Activate User</span>
+                </button>
+              </div>
             </td>
           </tr>
         </tbody>
