@@ -65,7 +65,7 @@ export default function UsersTable() {
               <button className="button-img">
                 <img src={ham} alt="" />
               </button>
-              <div className="button-modal">
+              {/* <div className="button-modal">
                 <button>
                   <span>
                     <img src={view} alt="" />
@@ -84,7 +84,7 @@ export default function UsersTable() {
                   </span>
                   <span>Activate User</span>
                 </button>
-              </div>
+              </div> */}
             </td>
           </tr>
         </tbody>

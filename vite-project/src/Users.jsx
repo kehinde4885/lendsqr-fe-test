@@ -14,7 +14,7 @@ export default function Users() {
   return (
     <main className="users">
       <h1 className="sect-head">Users</h1>
-      <div className="user-details">
+      <div className="users-details">
         <div className="detail-box">
           <div className="img">
             <img src={users} alt="" />
