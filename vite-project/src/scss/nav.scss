@@ -6,31 +6,13 @@
 
 @import "layout";
 
-@mixin option() {
-  display: flex;
-  align-items: center;
-  padding: 1rem 0;
-  margin: 0 0 1rem 0;
-
-  .img {
-    height: max-content;
-    display: flex;
-    align-items: center;
-  }
-
-  span {
-    margin-right: 1rem;
-  }
-}
-
-
+@import "mixins";
 
 .nav {
   font-family: "Work Sans", sans-serif;
   font-size: 1.6rem;
   color: $primary;
   padding: 3rem;
-
 
   ul {
     display: flex;
@@ -46,11 +28,10 @@
     margin-bottom: 3rem;
   }
 
-
-  .opt-grp{
-    margin-top:  3rem;
+  .opt-grp {
+    margin-top: 3rem;
   }
-  
+
   .opt-grp-title {
     font-size: 1.2rem;
     color: $secondary;

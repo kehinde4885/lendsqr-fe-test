@@ -1,0 +1,54 @@
+@mixin option() {
+  display: flex;
+  align-items: center;
+  padding: 1rem 0;
+  margin: 0 0 1rem 0;
+
+  .img {
+    height: max-content;
+    display: flex;
+    align-items: center;
+  }
+
+  span {
+    margin-right: 1rem;
+  }
+}
+
+@mixin button() {
+  background-color: transparent;
+  border: none;
+  font-size: 1.4rem;
+  font-family: "Work Sans", sans-serif;
+  padding: 1rem 3rem;
+  border-radius: 0.8rem;
+  font-weight: 600;
+}
+
+@mixin img() {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.4rem;
+}
+
+@mixin row() {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  justify-items: start;
+  padding: 2rem 0;
+}
+
+@mixin box() {
+  background-color: $white;
+  border: 0.1rem solid rgba($color: $primary, $alpha: 0.06);
+  box-shadow: 3px 5px 20px rgba($color: #000, $alpha: 0.04);
+}
+
+@mixin pill() {
+  padding: 0.5rem 0.7rem;
+  border-radius: 10rem;
+}

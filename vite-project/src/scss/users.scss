@@ -6,33 +6,7 @@
 
 @import "layout";
 
-@mixin img() {
-  width: 4rem;
-  height: 4rem;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1.4rem;
-}
-
-@mixin row() {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  justify-items: start;
-  padding: 2rem 0;
-}
-
-@mixin box() {
-  background-color: $white;
-  border: 0.1rem solid rgba($color: $primary, $alpha: 0.06);
-  box-shadow: 3px 5px 20px rgba($color: #000, $alpha: 0.04);
-}
-
-@mixin pill() {
-  padding: 1rem;
-  border-radius: 10rem;
-}
+@import "mixins";
 
 .users {
   grid-column: span 4;
@@ -41,7 +15,7 @@
   font-family: "Work Sans", sans-serif;
   padding: 6rem;
 
-  h1 {
+  .sect-head {
     font-size: 2.4rem;
     color: $primary;
     margin-bottom: 4rem;
@@ -88,81 +62,6 @@
       font-size: 2.4rem;
       font-weight: 600;
       color: $primary;
-    }
-  }
-
-  .user-table {
-    @include box();
-    display: grid;
-    padding: 2.5rem;
-    margin-bottom: 2rem;
-
-    .head-row {
-      @include row();
-      padding-top: 0;
-
-      th {
-        display: flex;
-        align-items: center;
-      }
-
-      .text {
-        font-size: 1.2rem;
-        margin-right: 1rem;
-      }
-
-      button {
-        background: none;
-        border: none;
-      }
-    }
-
-    .body-row:nth-last-child(n+2){
-        border-bottom: 1px solid rgba($color: $primary, $alpha: 0.1);
-    }
-
-    .body-row {
-      @include row();
-      position: relative;
-
-      td {
-        font-size: 1.4rem;
-      }
-
-      .button {
-        position: absolute;
-        right: 0;
-        top: 50%;
-        transform: translateY(-50%);
-
-        button {
-          background-color: none;
-          border: none;
-        }
-      }
-
-      .inactive {
-        @include pill();
-        background-color: rgba($color: $primary, $alpha: 0.06);
-      }
-
-      .blacklisted {
-        @include pill();
-        color: $red;
-        background-color: rgba($color: $red, $alpha: 0.06);
-      }
-
-      .pending {
-        @include pill();
-        color: $yellow;
-        background-color: rgba($color: $yellow, $alpha: 0.06);
-      }
-
-      .active {
-        @include pill();
-        color: $green;
-        background-color: rgba($color: $green, $alpha: 0.06);
-      }
     }
   }
 }
