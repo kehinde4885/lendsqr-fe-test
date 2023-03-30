@@ -1,0 +1,168 @@
+@import "fonts";
+
+@import "variables";
+
+@import "colors";
+
+@import "layout";
+
+@mixin img() {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.4rem;
+}
+
+@mixin row() {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  justify-items: start;
+  padding: 2rem 0;
+}
+
+@mixin box() {
+  background-color: $white;
+  border: 0.1rem solid rgba($color: $primary, $alpha: 0.06);
+  box-shadow: 3px 5px 20px rgba($color: #000, $alpha: 0.04);
+}
+
+@mixin pill() {
+  padding: 1rem;
+  border-radius: 10rem;
+}
+
+.users {
+  grid-column: span 4;
+  background-color: $bg;
+  color: $secondary;
+  font-family: "Work Sans", sans-serif;
+  padding: 6rem;
+
+  h1 {
+    font-size: 2.4rem;
+    color: $primary;
+    margin-bottom: 4rem;
+  }
+
+  .user-details {
+    display: flex;
+    gap: 2.6rem;
+    margin-bottom: 4rem;
+  }
+
+  .detail-box {
+    @include box();
+    padding: 2rem 3rem;
+    border-radius: 0.4rem;
+    flex-basis: 25%;
+
+    .img {
+      @include img();
+      background-color: rgba($color: $purple, $alpha: 0.1);
+    }
+
+    .img1 {
+      @include img();
+      background-color: rgba($color: $blue, $alpha: 0.1);
+    }
+
+    .img2 {
+      @include img();
+      background-color: rgba($color: $orange, $alpha: 0.1);
+    }
+
+    .img3 {
+      @include img();
+      background-color: rgba($color: $red2, $alpha: 0.1);
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      margin-bottom: 1.2rem;
+    }
+
+    p {
+      font-size: 2.4rem;
+      font-weight: 600;
+      color: $primary;
+    }
+  }
+
+  .user-table {
+    @include box();
+    display: grid;
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+
+    .head-row {
+      @include row();
+      padding-top: 0;
+
+      th {
+        display: flex;
+        align-items: center;
+      }
+
+      .text {
+        font-size: 1.2rem;
+        margin-right: 1rem;
+      }
+
+      button {
+        background: none;
+        border: none;
+      }
+    }
+
+    .body-row:nth-last-child(n+2){
+        border-bottom: 1px solid rgba($color: $primary, $alpha: 0.1);
+    }
+
+    .body-row {
+      @include row();
+      position: relative;
+
+      td {
+        font-size: 1.4rem;
+      }
+
+      .button {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+
+        button {
+          background-color: none;
+          border: none;
+        }
+      }
+
+      .inactive {
+        @include pill();
+        background-color: rgba($color: $primary, $alpha: 0.06);
+      }
+
+      .blacklisted {
+        @include pill();
+        color: $red;
+        background-color: rgba($color: $red, $alpha: 0.06);
+      }
+
+      .pending {
+        @include pill();
+        color: $yellow;
+        background-color: rgba($color: $yellow, $alpha: 0.06);
+      }
+
+      .active {
+        @include pill();
+        color: $green;
+        background-color: rgba($color: $green, $alpha: 0.06);
+      }
+    }
+  }
+}

@@ -74,8 +74,8 @@ export default function Nav() {
           </span>
           <span>Dashboard</span>
         </li>
-        <ul>
-          <p className="opt-grp">CUSTOMERS</p>
+        <ul className="opt-grp">
+          <p className="opt-grp-title">CUSTOMERS</p>
           {customersOptions.map((option) => {
             for (const property in option) {
               return (
@@ -89,8 +89,8 @@ export default function Nav() {
             }
           })}
         </ul>
-        <ul>
-          <p className="opt-grp">BUISINESSES</p>
+        <ul className="opt-grp">
+          <p className="opt-grp-title">BUISINESSES</p>
           <ul>
             {buisnessOptions.map((option) => {
               for (const property in option) {
@@ -106,8 +106,8 @@ export default function Nav() {
             })}
           </ul>
         </ul>
-        <ul>
-          <p className="opt-grp">SETTINGS</p>
+        <ul className="opt-grp">
+          <p className="opt-grp-title">SETTINGS</p>
           <ul>
           {settingsOptions.map((option) => {
               for (const property in option) {

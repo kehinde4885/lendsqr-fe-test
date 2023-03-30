@@ -29,6 +29,7 @@
   font-family: "Work Sans", sans-serif;
   font-size: 1.6rem;
   color: $primary;
+  padding: 3rem;
 
 
   ul {
@@ -45,11 +46,12 @@
     margin-bottom: 3rem;
   }
 
-  .dash-btn {
-    margin-bottom: 3rem;
-  }
 
-  .opt-grp {
+  .opt-grp{
+    margin-top:  3rem;
+  }
+  
+  .opt-grp-title {
     font-size: 1.2rem;
     color: $secondary;
     font-weight: 500;
