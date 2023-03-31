@@ -1,0 +1,198 @@
+@import "fonts";
+
+@import "variables";
+
+@import "colors";
+
+@import "layout";
+
+@import "mixins";
+
+.user-details {
+  @include userPage();
+
+  .back-btn {
+    background-color: $white;
+    font-size: 1.6rem;
+    padding: 0.5rem 0;
+    margin-bottom: 3rem;
+
+    span {
+      margin-right: 1.5rem;
+    }
+  }
+
+  .user-ctrls-sect {
+    display: flex;
+    justify-content: space-between;
+
+    .sect-title {
+      @include sectTitle();
+    }
+
+    .user-ctrls {
+      display: flex;
+      gap: 2rem;
+      align-items: start;
+
+      .blk {
+        @include button();
+        color: $red;
+        border: 1px solid $red;
+      }
+
+      .act {
+        @include button();
+        color: $tertiary;
+        border: 1px solid $tertiary;
+      }
+    }
+  }
+
+  article {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+
+    .personal-details-box {
+      @include box();
+      padding: 3rem 3rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 5rem;
+
+      .personal-details {
+        display: flex;
+
+        .personal-details-user {
+          display: flex;
+          align-items: center;
+          gap: 2rem;
+          padding-right: 3rem;
+          border-right: 1px solid rgba($color: $secondary, $alpha: 0.2);
+
+          .profile-pic-box {
+            background-color: rgba($color: $primary, $alpha: 0.16);
+            width: 10rem;
+            height: 10rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            img {
+              height: max-content;
+            }
+          }
+
+          :nth-child(2) {
+            h2 {
+              font-size: 2.2rem;
+              font-weight: 500;
+              color: $primary;
+              margin-bottom: 0.8rem;
+            }
+
+            p {
+              font-size: 1.4rem;
+            }
+          }
+        }
+
+        .tier-info {
+          padding: 0 3rem;
+          border-right: 1px solid rgba($color: $secondary, $alpha: 0.2);
+          display: flex;
+          gap: 1rem;
+          flex-direction: column;
+          justify-content: center;
+          p {
+            font-size: 1.4rem;
+            font-weight: 500;
+          }
+
+          span {
+            display: flex;
+            gap: 0.3rem;
+
+            img {
+              height: max-content;
+            }
+          }
+        }
+
+        .acct-info {
+          padding: 0 3rem;
+          display: flex;
+          gap: 1rem;
+          flex-direction: column;
+          justify-content: center;
+          color: $primary;
+          h2 {
+            font-size: 2.2rem;
+            font-weight: 500;
+          }
+          p {
+            font-size: 1.2rem;
+          }
+        }
+      }
+
+      .nav-btn {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+
+        button {
+          background-color: transparent;
+          padding: 0 3rem;
+          font-size: 1.6rem;
+          font-family: "sf_compact";
+          color: rgba($color: black, $alpha: 0.8);
+        }
+        .active {
+          color: $tertiary;
+          border-bottom: 2px solid $tertiary;
+          font-family: "Work Sans", sans-serif;
+        }
+      }
+    }
+
+    .more-details-box {
+      @include box();
+      padding: 3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+
+      .info-grp {
+        display: grid;
+        padding-bottom: 3rem;
+        gap: 3rem;
+        border-bottom: 1px solid rgba($color: $primary, $alpha: 0.1);
+
+        .info-row {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(20%, max-content));
+          gap: 3rem;
+        
+          h3 {
+            font-size: 1.6rem;
+            font-weight: 500;
+            color: $primary;
+          }
+
+          .info {
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+          }
+
+          .value {
+            font-size: 1.6rem;
+            font-weight: 500;
+          }
+        }
+      }
+    }
+  }
+}

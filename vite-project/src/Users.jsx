@@ -13,7 +13,7 @@ import UsersTable from "./Table";
 export default function Users() {
   return (
     <main className="users">
-      <h1 className="sect-head">Users</h1>
+      <h1 className="sect-title">Users</h1>
       <div className="users-details">
         <div className="detail-box">
           <div className="img">

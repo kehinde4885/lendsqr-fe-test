@@ -9,16 +9,10 @@
 @import "mixins";
 
 .users {
-  grid-column: span 4;
-  background-color: $bg;
-  color: $secondary;
-  font-family: "Work Sans", sans-serif;
-  padding: 6rem;
+  @include userPage();
 
-  .sect-head {
-    font-size: 2.4rem;
-    color: $primary;
-    margin-bottom: 4rem;
+  .sect-title {
+    @include sectTitle()
   }
 
   .users-details {

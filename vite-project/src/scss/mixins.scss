@@ -52,3 +52,19 @@
   padding: 0.5rem 0.7rem;
   border-radius: 10rem;
 }
+
+
+@mixin userPage(){
+  grid-column: span 4;
+  background-color: $bg;
+  color: $secondary;
+  font-family: "Work Sans", sans-serif;
+  padding: 6rem;
+}
+
+@mixin sectTitle(){
+  font-size: 2.4rem;
+  color: $primary;
+  margin-bottom: 4rem;
+  font-weight: 500;
+}
