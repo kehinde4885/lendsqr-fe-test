@@ -36,9 +36,10 @@
 }
 
 @mixin row() {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  justify-items: start;
+  // display: grid;
+  // grid-template-columns: repeat(6, 1fr);
+  // justify-items: start;
+  display: flex;
   padding: 2rem 0;
 }
 

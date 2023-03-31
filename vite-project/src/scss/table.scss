@@ -47,9 +47,11 @@
     .body-row {
       @include row();
       position: relative;
+      align-items: center;
 
       td {
         font-size: 1.2rem;
+        flex-basis: calc(100% / 6);
       }
 
       .ham-button {
@@ -84,8 +86,8 @@
             width: max-content;
             font-weight: 500;
 
-            span{
-              padding-right: .5rem;
+            span {
+              padding-right: 0.5rem;
             }
           }
         }
@@ -195,42 +197,40 @@
 
     .pgn {
       display: flex;
+      list-style: none;
 
-      button {
+      li {
         border: none;
         background-color: transparent;
         display: flex;
         align-items: center;
         justify-content: center;
         color: inherit;
-      }
-
-      .pages {
-        display: flex;
-
-        button {
+        cursor: pointer;
+        a {
           padding: 0 1rem;
           opacity: 60%;
         }
+      }
 
-        .active {
-          font-weight: 600;
-          opacity: 1;
-        }
+      .active {
+        font-weight: 600;
+        opacity: 1;
       }
 
       .ctrl {
         background-color: rgba($color: $primary, $alpha: 0.1);
         border-radius: 4px;
         padding: 0.5rem;
+        font-weight: 600;
+        a{
+          padding: 0;
+          opacity: 1;
+        }
 
         .disabled {
           opacity: 0.6;
         }
-      }
-
-      .ctrl-left {
-        transform: rotateZ(180deg);
       }
     }
   }

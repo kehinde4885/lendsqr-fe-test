@@ -7,7 +7,33 @@ import activate from "./assets/images/Vector-2.svg";
 
 import "./scss/table.scss";
 
-export default function UsersTable() {
+import { useEffect, useState } from "react";
+import ReactPaginate from "react-paginate";
+
+export default function UsersTable(props) {
+  const { users } = props;
+
+  const [itemsPerPage, changePaginate] = useState(10);
+
+  const [itemOffset, setItemOffset] = useState(0);
+  const endOffset = itemOffset + itemsPerPage;
+  //console.log(`Loading items from ${itemOffset} to ${endOffset}`);
+  const currentItems = users.slice(itemOffset, endOffset);
+  const pageCount = Math.ceil(users.length / itemsPerPage);
+
+  // Invoke when user click to request another page.
+  const handlePageClick = (event) => {
+    const newOffset = (event.selected * itemsPerPage) % users.length;
+    console.log(
+      `User requested page number ${event.selected}, which is offset ${newOffset}`
+    );
+    setItemOffset(newOffset);
+  };
+
+  function handleChange(e) {
+    changePaginate(e.target.value);
+  }
+
   return (
     <div className="container">
       <table className="user-table">
@@ -52,43 +78,16 @@ export default function UsersTable() {
           </tr>
         </thead>
         <tbody>
-          <tr className="body-row z-1">
-            <td>Lendsqr</td>
-            <td>Adedeji</td>
-            <td>adedeji@lendsqr.com</td>
-            <td>08078903721</td>
-            <td>May 15, 2020 10:00AM</td>
-            <td>
-              <span className="inactive">Inactive</span>
-            </td>
-            <td className="ham-button">
-              <button className="button-img">
-                <img src={ham} alt="" />
-              </button>
-              {/* <div className="button-modal">
-                <button>
-                  <span>
-                    <img src={view} alt="" />
-                  </span>
-                  <span>View Details</span>
-                </button>
-                <button>
-                  <span>
-                    <img src={blacklist} alt="" />
-                  </span>
-                  <span>Blacklist User</span>
-                </button>
-                <button>
-                  <span>
-                    <img src={activate} alt="" />
-                  </span>
-                  <span>Activate User</span>
-                </button>
-              </div> */}
-            </td>
-          </tr>
+          <TableRow currentItems={currentItems} />
         </tbody>
       </table>
+
+      <Paginate
+        handlePageClick={handlePageClick}
+        handleChange={handleChange}
+        length={users.length}
+        pageCount={pageCount}
+      />
 
       {/* <aside className="filt-modal">
         <form className="filt-form" action="">
@@ -111,41 +110,108 @@ export default function UsersTable() {
           </div>
         </form>
       </aside> */}
-
-      <form className="ctrl-btns">
-        <div className="grpBy">
-          <label>
-            Showing{" "}
-            <select name="" id="">
-              <option>10</option>
-              <option>25</option>
-              <option>50</option>
-              <option>100</option>
-            </select>{" "}
-            out of 100
-          </label>
-        </div>
-
-        <div className="pgn">
-          <button className="ctrl ctrl-left">
-            <img className="disabled" src={next} alt="" />
-          </button>
-          <div className="pages">
-            <button className="active">
-              <span>1</span>
-            </button>
-            <button>
-              <span>2</span>
-            </button>
-            <button>
-              <span>3</span>
-            </button>
-          </div>
-          <button className="ctrl ">
-            <img src={next} alt="" />
-          </button>
-        </div>
-      </form>
     </div>
+  );
+}
+
+function TableRow(props) {
+  const { currentItems } = props;
+
+  return currentItems.map((user, index) => {
+    return (
+      <tr key={index} className="body-row z-1">
+        <td>{user.orgName}</td>
+        <td>{user.userName}</td>
+        <td>{user.email}</td>
+        <td>{user.phoneNumber}</td>
+        <td>{userCreatedAt(user.createdAt)}</td>
+        <td>
+          <span className="inactive">Inactive</span>
+        </td>
+        <td className="ham-button">
+          <button className="button-img">
+            <img src={ham} alt="" />
+          </button>
+          {/* <div className="button-modal">
+                <button>
+                  <span>
+                    <img src={view} alt="" />
+                  </span>
+                  <span>View Details</span>
+                </button>
+                <button>
+                  <span>
+                    <img src={blacklist} alt="" />
+                  </span>
+                  <span>Blacklist User</span>
+                </button>
+                <button>
+                  <span>
+                    <img src={activate} alt="" />
+                  </span>
+                  <span>Activate User</span>
+                </button>
+              </div> */}
+        </td>
+      </tr>
+    );
+  });
+
+  function userCreatedAt(date) {
+    let dated = new Date(date);
+    let month = dated.getMonth();
+    let day = dated.getDate();
+    let year = dated.getFullYear();
+    let time = dated.toLocaleTimeString();
+
+    let created = `${month} ${day} ${year} ${time}`;
+
+    let createdAt = dated.toDateString();
+
+    return createdAt;
+  }
+}
+
+function Paginate(props) {
+  const { paginateView, handleChange, length, handlePageClick, pageCount } =
+    props;
+
+  return (
+    <form className="ctrl-btns">
+      <div className="grpBy">
+        <label>
+          Showing{" "}
+          <select
+            onChange={(e) => {
+              handleChange(e);
+            }}
+            value={paginateView}
+            name=""
+            id=""
+          >
+            <option>10</option>
+            <option>25</option>
+            <option>50</option>
+            <option>100</option>
+          </select>{" "}
+          out of {length}
+        </label>
+      </div>
+
+      <ReactPaginate
+        breakLabel="..."
+        nextLabel=">"
+        onPageChange={handlePageClick}
+        pageRangeDisplayed={3}
+        pageCount={pageCount}
+        previousLabel="<"
+        renderOnZeroPageCount={null}
+        containerClassName="pgn"
+        activeLinkClassName="active"
+        previousClassName="ctrl"
+        nextClassName="ctrl"
+        disabledLinkClassName="disabled"
+      />
+    </form>
   );
 }

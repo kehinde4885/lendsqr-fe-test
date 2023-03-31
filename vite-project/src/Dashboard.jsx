@@ -9,8 +9,8 @@ export default function Dashboard() {
     <section className="dashboard grid grid-cols-5">
       <Header />
       <Nav/>
-      {/* <Users/> */}
-      <UserDetails/>
+      <Users/>
+      {/* <UserDetails/> */}
     </section>
   );
 }
