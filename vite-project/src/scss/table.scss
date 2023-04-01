@@ -59,6 +59,7 @@
         right: 0;
         top: 50%;
         transform: translateY(-50%);
+        background-color: blueviolet;
 
         .button-img {
           background-color: none;
@@ -70,7 +71,7 @@
           border-radius: 4px;
           position: absolute;
           padding: 1rem 1rem;
-
+          visibility: hidden;
           display: flex;
           align-items: center;
           justify-items: center;
@@ -90,6 +91,10 @@
               padding-right: 0.5rem;
             }
           }
+        }
+
+        .visible{
+          visibility: visible
         }
       }
 

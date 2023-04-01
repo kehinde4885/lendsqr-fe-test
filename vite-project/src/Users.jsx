@@ -20,7 +20,10 @@ export default function Users() {
   useEffect(function () {
     fetch("https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users")
       .then((res) => res.json())
-      .then((data) => editUsers(data));
+      .then((data) => editUsers(data))
+      .catch((error) => {
+        console.log(error);
+      });
   }, []);
 
   return (
@@ -37,16 +40,17 @@ export default function Users() {
         />
       </div>
 
-      <UsersTable users={usersList} />
+      {usersList.length && <UsersTable users={usersList} />}
     </main>
   );
 
   function getActiveUsers() {
     return usersList.filter((user) => {
-      let userYear = new Date(user.lastActiveDate).getFullYear();
+      let userActiveYear = new Date(user.lastActiveDate).getFullYear();
+
       let currentYear = new Date().getFullYear();
 
-      if (userYear < currentYear) {
+      if (userActiveYear < currentYear) {
         return user;
       } else {
         //console.log("ninf");

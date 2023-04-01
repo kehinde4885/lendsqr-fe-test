@@ -1,6 +1,5 @@
 import filter from "./assets/images/filter.svg";
 import ham from "./assets/images/Vector-4.svg";
-import next from "./assets/images/np_next.svg";
 import view from "./assets/images/np_view.svg";
 import blacklist from "./assets/images/blacklist.png";
 import activate from "./assets/images/Vector-2.svg";
@@ -13,29 +12,26 @@ import ReactPaginate from "react-paginate";
 export default function UsersTable(props) {
   const { users } = props;
 
+  const [view, changeView] = useState(users);
+
+  console.log(view);
+
   const [itemsPerPage, changePaginate] = useState(10);
 
   const [itemOffset, setItemOffset] = useState(0);
+
   const endOffset = itemOffset + itemsPerPage;
   //console.log(`Loading items from ${itemOffset} to ${endOffset}`);
   const currentItems = users.slice(itemOffset, endOffset);
   const pageCount = Math.ceil(users.length / itemsPerPage);
 
-  // Invoke when user click to request another page.
-  const handlePageClick = (event) => {
-    const newOffset = (event.selected * itemsPerPage) % users.length;
-    console.log(
-      `User requested page number ${event.selected}, which is offset ${newOffset}`
-    );
-    setItemOffset(newOffset);
-  };
-
-  function handleChange(e) {
-    changePaginate(e.target.value);
-  }
-
   return (
-    <div className="container">
+    <div
+      onClick={(e) => {
+        closeModals(e);
+      }}
+      className="container"
+    >
       <table className="user-table">
         <thead>
           <tr className="head-row">
@@ -89,7 +85,7 @@ export default function UsersTable(props) {
         pageCount={pageCount}
       />
 
-      {/* <aside className="filt-modal">
+      <aside className="filt-modal">
         <form className="filt-form" action="">
           <label htmlFor="Organization">Organization</label>
           <select name="Organization" id="Organization"></select>
@@ -109,9 +105,37 @@ export default function UsersTable(props) {
             <button className="filter">Filter</button>
           </div>
         </form>
-      </aside> */}
+      </aside>
     </div>
   );
+
+  // Invoke when user click to request another page.
+  function handlePageClick(event) {
+    const newOffset = (event.selected * itemsPerPage) % users.length;
+    console.log(
+      `User requested page number ${event.selected}, which is offset ${newOffset}`
+    );
+    setItemOffset(newOffset);
+  }
+
+  function handleChange(e) {
+    changePaginate(e.target.value);
+  }
+
+  function closeModals(e) {
+    if (e.currentTarget.querySelector(".visible")) {
+      let modals = e.currentTarget.querySelectorAll(".visible");
+      let rows = e.currentTarget.querySelectorAll(".z-1");
+
+      modals.forEach((element) => {
+        element.classList.toggle("visible");
+      });
+
+      rows.forEach((element) => {
+        element.classList.toggle("z-1");
+      });
+    }
+  }
 }
 
 function TableRow(props) {
@@ -119,39 +143,23 @@ function TableRow(props) {
 
   return currentItems.map((user, index) => {
     return (
-      <tr key={index} className="body-row z-1">
+      <tr key={index} className="body-row">
         <td>{user.orgName}</td>
         <td>{user.userName}</td>
         <td>{user.email}</td>
         <td>{user.phoneNumber}</td>
         <td>{userCreatedAt(user.createdAt)}</td>
-        <td>
-          <span className="inactive">Inactive</span>
-        </td>
+        <td>{getUserStatus(user)}</td>
         <td className="ham-button">
-          <button className="button-img">
+          <button
+            onClick={(e) => {
+              moreOptions(e);
+            }}
+            className="button-img"
+          >
             <img src={ham} alt="" />
           </button>
-          {/* <div className="button-modal">
-                <button>
-                  <span>
-                    <img src={view} alt="" />
-                  </span>
-                  <span>View Details</span>
-                </button>
-                <button>
-                  <span>
-                    <img src={blacklist} alt="" />
-                  </span>
-                  <span>Blacklist User</span>
-                </button>
-                <button>
-                  <span>
-                    <img src={activate} alt="" />
-                  </span>
-                  <span>Activate User</span>
-                </button>
-              </div> */}
+          <Modal />
         </td>
       </tr>
     );
@@ -169,6 +177,33 @@ function TableRow(props) {
     let createdAt = dated.toDateString();
 
     return createdAt;
+  }
+
+  function getUserStatus(user) {
+    let userActiveYear = new Date(user.lastActiveDate).getFullYear();
+    let createdYear = new Date(user.createdAt).getFullYear();
+
+    let currentYear = new Date().getFullYear();
+
+    if (userActiveYear < currentYear) {
+      return <span className="active">Active</span>;
+    } else if (createdYear > currentYear) {
+      return <span className="inactive">Inactive</span>;
+    } else {
+      return <span className="pending">Pending</span>;
+    }
+  }
+
+  function moreOptions(e) {
+    let element = e.currentTarget;
+
+    let rowParent = element.parentElement.parentElement;
+
+    rowParent.classList.toggle("z-1");
+
+    rowParent.querySelector("#button-modal").classList.toggle("visible");
+
+    e.stopPropagation();
   }
 }
 
@@ -214,4 +249,37 @@ function Paginate(props) {
       />
     </form>
   );
+}
+
+function Modal() {
+  return (
+    <div id="button-modal" className="button-modal">
+      <button
+        onClick={(e) => {
+          modalClicked(e);
+        }}
+      >
+        <span>
+          <img src={view} alt="" />
+        </span>
+        <span>View Details</span>
+      </button>
+      <button>
+        <span>
+          <img src={blacklist} alt="" />
+        </span>
+        <span>Blacklist User</span>
+      </button>
+      <button>
+        <span>
+          <img src={activate} alt="" />
+        </span>
+        <span>Activate User</span>
+      </button>
+    </div>
+  );
+
+  function modalClicked(e) {
+    console.log("modal Clicked");
+  }
 }
