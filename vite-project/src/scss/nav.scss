@@ -12,7 +12,7 @@
   font-family: "Work Sans", sans-serif;
   font-size: 1.6rem;
   color: $primary;
-  padding: 3rem;
+  padding: 3rem 0;
 
   ul {
     display: flex;
@@ -21,6 +21,19 @@
 
   .option {
     @include option();
+    cursor: pointer;
+    opacity: .6;
+  }
+
+  .selected{
+    background-color:rgba($color: $tertiary, $alpha: .06);
+    border-left: 3px solid $tertiary;
+    opacity: 1;
+  }
+
+  a{
+    text-decoration: none;
+    color: inherit;
   }
 
   .org_switch {
@@ -37,5 +50,6 @@
     color: $secondary;
     font-weight: 500;
     margin-bottom: 1rem;
+    padding: 0 0 0 3rem;
   }
 }

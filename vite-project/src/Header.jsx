@@ -11,7 +11,7 @@ import dropdown from './assets/images/dropdown.svg'
 //Style Sheets
 import './scss/header.scss'
 
-export default function Header() {
+export default function Header({username}) {
   return (
     <header>
       <Logo />
@@ -33,12 +33,13 @@ export default function Header() {
         <img className="bell" src={bell} alt="" />
         <div className="user-pic">
           <img src={deji} alt="" />
-          <p>Adedeji</p>
+          <p>{username}</p>
           <button>
             <img src={dropdown} alt="" />
           </button>
         </div>
       </div>
     </header>
+    
   );
 }

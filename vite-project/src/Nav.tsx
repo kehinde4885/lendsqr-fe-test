@@ -25,6 +25,7 @@ import audit from "./assets/images/logs.svg";
 
 //StyleSheets
 import "./scss/nav.scss";
+import { Link } from "react-router-dom";
 
 let customersOptions = [
   { Users: users },
@@ -79,12 +80,18 @@ export default function Nav() {
           {customersOptions.map((option) => {
             for (const property in option) {
               return (
-                <li key={property} className="option">
-                  <span className="img">
-                    <img src={option[property]} alt="" />
-                  </span>
-                  <span>{property}</span>
-                </li>
+                <Link to="users">
+                  <li
+                    onClick={showActiveLink}
+                    key={property}
+                    className="option"
+                  >
+                    <span className="img">
+                      <img src={option[property]} alt="" />
+                    </span>
+                    <span>{property}</span>
+                  </li>
+                </Link>
               );
             }
           })}
@@ -109,7 +116,7 @@ export default function Nav() {
         <ul className="opt-grp">
           <p className="opt-grp-title">SETTINGS</p>
           <ul>
-          {settingsOptions.map((option) => {
+            {settingsOptions.map((option) => {
               for (const property in option) {
                 return (
                   <li key={property} className="option">
@@ -126,4 +133,15 @@ export default function Nav() {
       </ul>
     </nav>
   );
+
+  function showActiveLink(event: React.MouseEvent<HTMLElement>) {
+    console.log();
+
+    let grandParent = event.currentTarget.parentElement.parentElement;
+
+    if (grandParent.querySelector(".selected")) {
+      grandParent.querySelector(".selected").classList.toggle("selected");
+    }
+    event.currentTarget.classList.add("selected");
+  }
 }
