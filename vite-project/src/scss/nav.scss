@@ -31,10 +31,7 @@
     opacity: 1;
   }
 
-  a{
-    text-decoration: none;
-    color: inherit;
-  }
+
 
   .org_switch {
     @include option();

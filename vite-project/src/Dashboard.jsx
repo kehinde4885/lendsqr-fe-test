@@ -17,7 +17,7 @@ export default function Dashboard() {
       <Nav />
       <Routes>
         <Route path="users" element={<Users />} />
-        <Route path="user/:id" element={<UserDetails />} />
+        <Route path="users/:id" element={<UserDetails />} />
       </Routes>
     </section>
   );

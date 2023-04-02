@@ -5,8 +5,26 @@ import profile from "./assets/images/np_user.svg";
 import starvoid from "./assets/images/star-void.svg";
 
 import "./scss/userdetails.scss";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 export default function UserDetails() {
+  let location = useLocation()
+
+  console.log(location)
+  let id = location.state
+
+
+
+  useEffect(()=>{
+    fetch(`https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users/${id}`)
+    .then(res => res.json())
+    .then(data=>{
+      console.log(data)
+      window.localStorage.setItem('user', JSON.stringify(data))
+    })
+  },[])
+
   return (
     <main className="user-details">
       <button className="back-btn">

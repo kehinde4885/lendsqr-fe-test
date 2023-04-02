@@ -8,7 +8,7 @@ import "./scss/table.scss";
 
 import { useReducer, useState } from "react";
 import ReactPaginate from "react-paginate";
-
+import {Link} from 'react-router-dom'
 //REDUCER FUNCTION
 function reducer(state, action) {}
 
@@ -146,7 +146,7 @@ function TableRow(props) {
           >
             <img src={ham} alt="" />
           </button>
-          <Modal />
+          <Modal id={user.id}/>
         </td>
       </tr>
     );
@@ -238,7 +238,7 @@ function Paginate(props) {
   );
 }
 
-function Modal() {
+function Modal({id}) {
   return (
     <div id="button-modal" className="button-modal">
       <button
@@ -246,10 +246,12 @@ function Modal() {
           modalClicked(e);
         }}
       >
+        <Link to={`${id}`} state={id}>
         <span>
           <img src={view} alt="" />
         </span>
         <span>View Details</span>
+        </Link>
       </button>
       <button>
         <span>
