@@ -80,10 +80,10 @@ export default function Nav() {
           {customersOptions.map((option) => {
             for (const property in option) {
               return (
-                <Link to="users">
+                <Link key={property} to="users">
                   <li
                     onClick={showActiveLink}
-                    key={property}
+                    
                     className="option"
                   >
                     <span className="img">
