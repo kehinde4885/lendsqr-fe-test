@@ -6,13 +6,11 @@ import starvoid from "./assets/images/star-void.svg";
 
 import "./scss/userdetails.scss";
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export default function UserDetails() {
   let location = useLocation();
   let [loading, isLoaded] = useState(false);
-
-  console.log(loading);
   let id = location.state;
 
   useEffect(() => {
@@ -21,7 +19,6 @@ export default function UserDetails() {
     )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         window.localStorage.setItem("user", JSON.stringify(data));
         isLoaded(true);
       });
@@ -49,12 +46,14 @@ export default function UserDetails() {
 
     return (
       <main className="user-details">
-        <button className="back-btn">
-          <span>
-            <img src={Backarrow} alt="" />
-          </span>
-          <span>Back to Users</span>
-        </button>
+        <Link to="../users">
+          <button className="back-btn">
+            <span>
+              <img src={Backarrow} alt="" />
+            </span>
+            <span>Back to Users</span>
+          </button>
+        </Link>
 
         <div className="user-ctrls-sect">
           <h1 className="sect-title">User Details</h1>
@@ -193,11 +192,17 @@ export default function UserDetails() {
                 </div>
                 <div>
                   <p className="info">EMAIL ADDRESS</p>
-                  <p className="value">{user.guarantor.email ? user.guarantor.email : 'NA'}</p>
+                  <p className="value">
+                    {user.guarantor.email ? user.guarantor.email : "NA"}
+                  </p>
                 </div>
                 <div>
                   <p className="info">RELATIONSHIP</p>
-                  <p className="value">{user.guarantor.relationship ? user.guarantor.relationship : 'NA'}</p>
+                  <p className="value">
+                    {user.guarantor.relationship
+                      ? user.guarantor.relationship
+                      : "NA"}
+                  </p>
                 </div>
               </div>
             </div>

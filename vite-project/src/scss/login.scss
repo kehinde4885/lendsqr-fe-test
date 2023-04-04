@@ -10,15 +10,20 @@
 
 .login-section {
     height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     align-items: center;
     justify-items: center;
     position: relative;
+
   
     .logo {
       position: absolute;
-      top: 0;
-      left: 0;
+      top: 10%;
+      left: 5%;
     }
+
+    
   
     article {
       h1 {
@@ -75,3 +80,28 @@
       }
     }
   }
+
+//Media Queries and Responsive Design
+@media (max-width: 1024px) {
+
+  .login-section {
+    grid-template-columns: 1fr;
+
+
+    @media (max-width: 450px) {
+      article .form input{
+        width: 100%;
+       }
+      
+    }
+   
+
+  }
+
+
+  .login-section > div:nth-child(2){
+    display: none;
+  }
+
+
+}

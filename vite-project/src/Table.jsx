@@ -269,7 +269,7 @@ function Modal({id}) {
   );
 
   function modalClicked(e) {
-    console.log("modal Clicked");
+   
   }
 }
 

@@ -1,6 +1,7 @@
 import loginBanner from "./assets/images/pablo.svg";
 import Logo from "./Logo";
 
+
 import { useNavigate } from "react-router-dom";
 
 export default function Login({ useAuth }) {
@@ -10,7 +11,7 @@ export default function Login({ useAuth }) {
   let to = "/dashboard";
 
   return (
-    <section className="login-section grid grid-cols-2">
+    <section className="login-section">
       <Logo />
 
       <div>
