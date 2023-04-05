@@ -129,6 +129,13 @@ header {
   }
   
   @media (max-width: 500px) {
+    header{
+      margin-right: 1rem;
+    }
+
+    header .logo{
+      width: 10rem;
+    }
     header .user-btns {
       display: contents;
 
@@ -145,9 +152,11 @@ header {
       display: none;
     }
 
+    header .user-btns .user-pic p {
+      font-size: 1rem;
+    }
     .user-pic > img {
       display: none;
-
     }
     
   }
