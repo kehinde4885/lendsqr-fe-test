@@ -9,6 +9,8 @@
 
 .dashboard {
   height: 100vh;
+  display: grid;
   grid-template-rows: 10rem;
+  grid-template-columns: repeat(5, 1fr);
  
 }

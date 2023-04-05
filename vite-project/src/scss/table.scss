@@ -12,6 +12,7 @@
 
 .container {
   position: relative;
+  margin: 0 6rem;
 
   .user-table {
     @include box();
@@ -27,6 +28,7 @@
       th {
         display: flex;
         align-items: center;
+        flex-basis: 16.67%;
       }
 
       .text {
@@ -44,83 +46,94 @@
       border-bottom: 1px solid rgba($color: $primary, $alpha: 0.1);
     }
 
-    .body-row {
-      @include row();
-      position: relative;
-      align-items: center;
+    tbody{
 
-      td {
-        font-size: 1.2rem;
-        flex-basis: calc(100% / 6);
-      }
-
-      .ham-button {
-        position: absolute;
-        right: 0;
-        top: 50%;
-        transform: translateY(-50%);
-        background-color: blueviolet;
-
-        .button-img {
-          background-color: none;
-          border: none;
+      display: flex;
+      flex-direction: column;
+      
+      .body-row {
+        @include row();
+        position: relative;
+        align-items: center;
+        gap: 2rem;
+  
+        td {
+          font-size: 1.2rem;
+          flex-basis: calc(100% / 6);
+         
         }
-
-        .button-modal {
-          @include box();
-          border-radius: 4px;
+  
+        .ham-button {
           position: absolute;
-          padding: 1rem 1rem;
-          visibility: hidden;
-          display: flex;
-          align-items: center;
-          justify-items: center;
-          flex-direction: column;
-          top: -50%;
           right: 0;
-
-          button {
-            background-color: inherit;
+          top: 50%;
+          transform: translateY(-50%);
+          background-color: blueviolet;
+  
+          .button-img {
+            background-color: none;
+            border: none;
+          }
+  
+          .button-modal {
+            @include box();
+            border-radius: 4px;
+            position: absolute;
+            padding: 1rem 1rem;
+            visibility: hidden;
             display: flex;
             align-items: center;
-            padding: 0.5rem 0;
-            width: max-content;
-            font-weight: 500;
-
-            span {
-              padding-right: 0.5rem;
+            justify-items: center;
+            flex-direction: column;
+            top: -50%;
+            right: 0;
+  
+            button {
+              background-color: inherit;
+              display: flex;
+              align-items: center;
+              padding: 0.5rem 0;
+              width: max-content;
+              font-weight: 500;
+  
+              span {
+                padding-right: 0.5rem;
+              }
             }
           }
+  
+          .visible{
+            visibility: visible
+          }
         }
-
-        .visible{
-          visibility: visible
+  
+        .inactive {
+          @include pill();
+          background-color: rgba($color: $primary, $alpha: 0.06);
+        }
+  
+        .blacklisted {
+          @include pill();
+          color: $red;
+          background-color: rgba($color: $red, $alpha: 0.06);
+        }
+  
+        .pending {
+          @include pill();
+          color: $yellow;
+          background-color: rgba($color: $yellow, $alpha: 0.06);
+        }
+  
+        .active {
+          @include pill();
+          color: $green;
+          background-color: rgba($color: $green, $alpha: 0.06);
         }
       }
 
-      .inactive {
-        @include pill();
-        background-color: rgba($color: $primary, $alpha: 0.06);
-      }
-
-      .blacklisted {
-        @include pill();
-        color: $red;
-        background-color: rgba($color: $red, $alpha: 0.06);
-      }
-
-      .pending {
-        @include pill();
-        color: $yellow;
-        background-color: rgba($color: $yellow, $alpha: 0.06);
-      }
-
-      .active {
-        @include pill();
-        color: $green;
-        background-color: rgba($color: $green, $alpha: 0.06);
-      }
     }
+
+    
   }
 
   .filt-modal {
@@ -238,5 +251,11 @@
         }
       }
     }
+  }
+}
+
+@media (max-width:702px) {
+  .container {
+    margin: 0;
   }
 }

@@ -12,13 +12,14 @@
   @include userPage();
 
   .sect-title {
-    @include sectTitle()
+    @include sectTitle();
+    margin-left: 6rem
   }
 
   .users-details {
     display: flex;
     gap: 2.6rem;
-    margin-bottom: 4rem;
+    margin: 0 6rem 4rem;
   }
 
   .detail-box {
@@ -58,4 +59,20 @@
       color: $primary;
     }
   }
+}
+
+
+@media (max-width: 956px) {
+  .users {
+    grid-column: 1/-1;
+  }
+
+  .users .users-details {
+    flex-wrap: wrap;
+  }
+
+  .users .detail-box {
+    flex-basis: 40%;
+  }
+  
 }

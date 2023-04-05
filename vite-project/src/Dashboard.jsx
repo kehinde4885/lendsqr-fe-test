@@ -12,7 +12,7 @@ export default function Dashboard() {
 
   
   return (
-    <section className="dashboard grid grid-cols-5">
+    <section className="dashboard">
       <Header username={username}/>
       <Nav />
       <Users/>
