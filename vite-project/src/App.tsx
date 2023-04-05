@@ -1,16 +1,15 @@
 //StyleSheet
 import "./scss/App.scss";
-import './scss/login.scss'
+import "./scss/login.scss";
 
 //Assets
 
-
 //Components
-import Login from './Login'
+import Login from "./Login";
 
 import Dashboard from "./Dashboard";
 
-import { createContext, useContext , useState } from "react";
+import { createContext, useContext, useState } from "react";
 
 //React Router
 import {
@@ -30,15 +29,16 @@ export default function App() {
     <div className="App">
       <AuthProvider>
         <Routes>
-          <Route path="/" element={<Login useAuth={useAuth}/>} />
-          <Route
+          {/* <Route path="/" element={<Login useAuth={useAuth}/>} /> */}
+          {/* <Route
             path="/dashboard/*"
             element={
               <RequireAuth>
                 <Dashboard />
               </RequireAuth>
             }
-          ></Route>
+          ></Route> */}
+          <Route path="/*" element={<Dashboard />}></Route>
         </Routes>
       </AuthProvider>
     </div>
@@ -58,11 +58,10 @@ function useAuth() {
   return useContext(AuthContext);
 }
 
-
-//This Sets a Context Provider with the 
+//This Sets a Context Provider with the
 //SignIn and SignOut Function as Context
 //Returns the Context with the Initial Children intact but serves
-//the functions as context values so they can be accessed by all 
+//the functions as context values so they can be accessed by all
 //Children
 function AuthProvider({ children }: { children: React.ReactNode }) {
   let [user, setUser] = useState<any>(null);
@@ -100,4 +99,3 @@ function RequireAuth({ children }: { children: JSX.Element }) {
 
   return children;
 }
-

@@ -33,7 +33,7 @@ export default function Header({username}) {
         <img className="bell" src={bell} alt="" />
         <div className="user-pic">
           <img src={deji} alt="" />
-          <p>{username}</p>
+          <p>{`Jonathan`}</p>
           <button>
             <img src={dropdown} alt="" />
           </button>

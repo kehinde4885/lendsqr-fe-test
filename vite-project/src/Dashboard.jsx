@@ -15,10 +15,11 @@ export default function Dashboard() {
     <section className="dashboard grid grid-cols-5">
       <Header username={username}/>
       <Nav />
-      <Routes>
+      <Users/>
+      {/* <Routes>
         <Route path="users" element={<Users />} />
         <Route path="users/:id" element={<UserDetails />} />
-      </Routes>
+      </Routes> */}
     </section>
   );
 }

@@ -9,10 +9,11 @@
 header {
   grid-column: 1/-1;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   font-family: "Work Sans", sans-serif;
   color: $primary;
-  padding: 0 6rem 0 3rem ;
+  margin: 0 6rem 0 3rem ;
 
   .logo {
     img {
@@ -89,5 +90,65 @@ header {
         border: none;
       }
     }
+  }
+}
+
+
+//Responsive Design
+@media (max-width:1156px) {
+
+  header .form{
+    margin-left: 0;
+  }
+
+  header .user-btns {
+    margin-left: 0;
+  }
+
+ 
+}
+
+@media (max-width:1000px) {
+  header .form {
+    width: max-content;
+  }
+
+  header .user-btns a{
+    margin-right: 2rem;
+  }
+
+  header .user-btns .bell{
+    margin-right: 2rem;
+  }
+  
+}
+  
+@media (max-width:770px) {
+  header .user-btns {
+    display: none;
+  }
+  
+  @media (max-width: 500px) {
+    header .user-btns {
+      display: contents;
+
+      a{
+        display: none;
+      }
+
+      .bell {
+        display: none;
+      }
+    }
+
+    header .form {
+      display: none;
+    }
+
+    .user-pic > img {
+      display: none;
+
+    }
+    
   }
 }
